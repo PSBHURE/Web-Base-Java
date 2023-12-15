@@ -1,0 +1,221 @@
+Day 1
+1. import day1.2 , to revise DB layered application
+(Edit build path n user name , password)
+
+Hands on : 
+1. Refer to online voting case study
+Prepare DAO, POJO layers , Write a simple tester/s to test it in standalone application.
+
+1.0 Copy candidates table from "day1-data\day1_help\jdbc help\sql\voting sql.txt" n also copy data
+
+1.1 List all candidates
+
+Table : candidates
+POJO : Candidate
+DBUtils : copy
+DAO : CandidateDao i/f
+List<Candidate> getAllCandidates() throws SE
+CandidateDaoImpl
+1. import : java.sql , import static : utils
+2. state : cn , pst1
+3. def ctor : openCn , pst1=cn.prepareStatement(sql);
+4. clean up : close pst1, cn
+5. getAllCandidates() : exec query --RST --while loop --ORM 
+
+ListAllCandidates : Tester (main)
+1. create dao instance
+2. invoke dao's method --list.forEach(...);
+3. dao's cleanup.
+
+
+1.2 Increment candidate's votes
+i/p : candidate id
+
+1.3 Display details of top 2 candidates , having max votes
+
+1.4 Display partywise votes 
+(eg : BJP 50 , Congress 29 ...)
+
+2. Add tomcat web server in Eclipse(STS 3.9.18) IDE.
+(Refer : "day1-data\day1_help\Web Server n Java EE docs\Installation steps for Tomcat.txt")
+
+
+Reading H.W
+Today's sequence 
+SQL Injection readme.
+
+
+
+Day 2
+1. Follow all the steps from "day2-data\day2_help\Steps.txt"
+DO NOT repeat the steps , if you have done them yesterday.
+
+1.1 Create n deploy the servlet using annotations n xml tags
+
+2. Start with case study for New Voter Registration
+Try it out .
+OR
+Complete pending steps from Day 1
+
+3. In the individual labs 
+3.1 import day2.1 , to revise invocation of a stored procedure.
+3.2 import day2_web for servlets.
+
+
+3. MANDATORY Reading  H.W
+3.1 "day2-data\day2_help\JDBC sequence.txt"
+3.2 "day2-data\day2_help\sequence.txt"
+
+
+Day 3
+1. import day3.1 in your workspace , to revise
+1.1 Redirect scenario (page navigation)
+1.2 Cookie based session tracking
+
+2. import day3.2 in your workspace , to revise
+
+2.1 HttpSession i/f based  session tracking
+
+3. Mandatory Hands on 
+Add a Link : Sign Up , in login.html
+Submit it to voter_register.html(Already supplied in today's help.)
+ Accept first name , last name , email , password , dob from user.
+Submit the form to VoterRegistrationServlet
+Validate user's age . In case of valid age , use dao layer to insert a record in DB.
+In case of successful insertion , Add a link : Login Again ---> login.html
+In case of failure  ,display failure message ,  Add a link : Back  ---> voter_registration.html
+
+
+
+
+Day 4
+1. import day4.1 in your workspace. Edit DB password from DBUtils . Trace complete flow.
+(Voter flow)
+
+2. import day4.2  in your workspace. Edit DB password from web.xml . 
+Revise ServletConfig with the Voter flow
+
+3. import day4.3 in your workspace. Revise RequestDispatcher's forward scenario
+(Student admission w/o DB)
+
+4. import day4.4 in your workspace. Revise RequestDispatcher's include scenario
+(Student admission w/o DB)
+
+
+
+
+Hands on
+1. Complete pending work.(Voter Registration)
+
+2. Complete Admin Flow.
+
+OR
+
+3. Try something completely new ! 
+IPL assignment . Use supplied tables (teams n players) , follow assignment help n try it out.
+
+Even if you solve one of above , you will get confidence in servlets.
+
+
+Day 5
+
+1. import day5.2 to revise JSP basics
+JSP comments , scripting elements , implicit objects , EL syntax
+
+2. Complete IPL assignment (using servlets)
+
+3. Those who have completed IPL assignment ,
+try JSP assignment using server pull.
+(Replace sendRedirect by forward n make necessary changes)
+
+OR
+
+Solve student admission assignment using JSP
+
+Mandatory Reading exercise
+MUST go through : "day5-data\day5_help\jsp_help\readme_jsp.txt" 
+till JSP directives.
+You will not understand anything otherwise.
+
+
+Day 6
+1. import day6.2 (copy project in workspace.)
+Edit DB password
+Revise JSP-JavaBean -DAO-POJO -DB layers
+
+1.1 Complete n test user authentication n authorization.
+
+
+Day 7
+1. Complete the steps in hibernate project , till the insertion of a new product.
+Go through today's sequence
+
+Revise hibernate steps.
+
+2. import day7.1 (online voting : admin flow) n revise JSTL tags
+
+3. You can refer to jstl_demo , for more practice of JSTL tags.
+
+
+Day 8
+1. Copy day7_lab into day8_lab
+(We will continue with Product scenario)
+Solve 
+1.1 Add new product (using SF's getCurrentSession)
+Write enitire code , along with boilerplate code
+
+Add multiple records.
+
+1.2 Get all products
+
+1.3 Get all products from a specific product category
+i/p : product category
+
+1.4 Get Product id , name , price n stock for all the products manufactured after specific date.
+i/p : date
+
+1.5 Update Product price
+i/p : product id , price offset(inc or dec)
+o/p : a message string
+
+1.6 Apply discount to all the products from specified category
+i/p : category , discount
+
+1.7 Delete product details 
+i/p : product id
+o/p : a message string(success or failure)
+
+
+Day 9
+
+Hands on 
+1. import web_maven_hibernate from "template projects"
+Force update Maven
+Edit password from config xml file
+
+
+Solve 
+IPL assignment using JSP-JB-Hibernate based DAO , POJO n Utils layers
+Steps
+1.1 Run the web app n check if 
+welcome message appears n hibernate is loaded or not
+
+Refer : day5_ipl
+
+1.2 Copy Hibernate utils n earlier pojos
+Team n Player
+
+1.3 Create Base Entity n extend these entities from it.
+(Refer to existing tables : teams n players n match the entities)
+
+1.4 Establish bi dir Team  1<----->* Player association between the entities
+
+1.5 Modify earlier TeamDao n implementation class , to generate 1st page
+(add_player_form.jsp)
+
+1.6 Create Team Bean (java bean ) n JSP n test it.
+
+If time permits complete 2nd page also.
+
+
+
